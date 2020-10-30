@@ -1,12 +1,9 @@
 import React, {Component} from 'react'
+// функція яка дозволяє зєднати компонент reactu з store redux
 import {connect} from 'react-redux'
 import './App.css';
 
 class App extends Component {
-
-  state = {
-    counter: 0
-  }
 
   updateCounter(value){
     this.setState({
@@ -15,10 +12,9 @@ class App extends Component {
   }
   
   render() {
-    console.log('APP', this.props);
     return(
       <div className='App'>
-        <h1>Counter <strong>{this.state.counter}</strong></h1>
+        <h1>Counter <strong>{this.props.counter}</strong></h1>
         <hr/>
         <div className="Actions">
           <button onClick={() => this.updateCounter(1)}>+</button>
@@ -28,12 +24,16 @@ class App extends Component {
     )
   }
 }
-
+// приймає в себе загальний "state"
 function mapStateToProps(state){
+  // повертаємо новий JS обєкт трансформований, для того щоб його юзати не як "state", а як "props". "state.counter" ми беремо з "rootReducer.js"
   return {
     counter: state.counter
   }
 
 }
+// Функція "connect" приймає в себе 2 параметри, 2 опціональних параметри або 2 функції:
+// 1) mapStateToProps()
 
+// викликаємо функцію "connect" яка нам повертає функцію в яку ми передаємо наш компонент "App", в функцію "connect" ми передаємо "mapStateToProps" не викликаючи її
 export default connect(mapStateToProps)(App)
