@@ -3,6 +3,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import './App.css';
 import Counter from './Counter'
+import {add, sub, addNumber} from './redux/actions/actions'
+
+
 class App extends Component {
   // updateCounter(value){
   //   this.setState({
@@ -39,9 +42,9 @@ function mapStateToProps(state){
 // повертає нам об'єкт з екшенами
 function mapDispatchToProps(dispatch) {
   return {
-    onAdd: () => dispatch({type: 'ADD', value: Math.random()}),
-    onSub: () => dispatch({type: 'SUB', value: Math.random()}),
-    onAddNumber: number => dispatch({type: 'ADD_NUMBER', payload: number})
+    onAdd: () => dispatch(add()),
+    onSub: () => dispatch(sub()),
+    onAddNumber: number => dispatch(addNumber(number))
   }
 }
 

@@ -10,6 +10,8 @@ import {Provider} from 'react-redux'
 // підключаємо наш створений "Reducer"
 import rootReducer from './redux/rootReducer'
 
+// Middleware це функція яка додає функціонал до Redux 
+// Функція loggerMiddleware" при зміні "store" в "Redux" всі зміни буде виводи в консоль замість нас
 // function loggerMiddleware(store) {
 //   return function(next) {
 //     return function(action){
