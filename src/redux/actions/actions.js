@@ -1,6 +1,6 @@
 // ActionCreator функції які видають на action
 
-import {ADD, SUB, ADD_NUMBER, ADD2} from './actionTypes'
+import {ADD, SUB, ADD_NUMBER, ADD2, } from './actionTypes'
 
 
 export function add() {
@@ -12,6 +12,14 @@ export function add() {
 export function sub() {
   return {
     type: SUB
+  }
+}
+
+export function asyncAdd(number) {
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(addNumber(number))
+    }, 3000)
   }
 }
 

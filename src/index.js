@@ -9,6 +9,7 @@ import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 // підключаємо наш створений "Reducer"
 import rootReducer from './redux/rootReducer'
+import reduxThunk from 'redux-thunk'
 
 // Middleware це функція яка додає функціонал до Redux 
 // Функція loggerMiddleware" при зміні "store" в "Redux" всі зміни буде виводи в консоль замість нас
@@ -31,7 +32,7 @@ const loggerMiddleware = store => next => action => {
 
 
 // наша функція по створені "store", яка приймає reducer 
-const store = createStore(rootReducer, applyMiddleware(loggerMiddleware))
+const store = createStore(rootReducer, applyMiddleware(loggerMiddleware, reduxThunk))
 // для зручності створюємо змінну app в яку ми запихаємо наш додаток огорнутий компонентом "Provider"
 const app = (
   //  передаємо нашому провайдеру "store"

@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import './App.css';
 import Counter from './Counter'
-import {add, sub, addNumber} from './redux/actions/actions'
+import {add, sub, addNumber, asyncAdd} from './redux/actions/actions'
 
 
 class App extends Component {
@@ -22,8 +22,12 @@ class App extends Component {
           <button onClick={this.props.onAdd}>+</button>
           {/* <button onClick={() => this.updateCounter(-1)}>+</button> */}
           <button onClick={this.props.onSub}>-</button>
-
+        </div>
+        <div>
           <button onClick={() => this.props.onAddNumber(4)}>4</button>
+        </div>
+        <div>
+          <button onClick={() => this.props.onAsyncAdd(42)}>Асинхронно додати 42</button>
         </div>
         <hr/>
         <Counter />
@@ -44,7 +48,8 @@ function mapDispatchToProps(dispatch) {
   return {
     onAdd: () => dispatch(add()),
     onSub: () => dispatch(sub()),
-    onAddNumber: number => dispatch(addNumber(number))
+    onAddNumber: number => dispatch(addNumber(number)),
+    onAsyncAdd: number => dispatch(asyncAdd(number))
   }
 }
 
