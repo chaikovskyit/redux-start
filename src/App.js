@@ -10,7 +10,6 @@ class App extends Component {
   //   })
   // }
   render() {
-    console.log(this.props);
     return(
       <div className='App'>
         <h1>Counter <strong>{this.props.counter}</strong></h1>
@@ -21,9 +20,6 @@ class App extends Component {
           {/* <button onClick={() => this.updateCounter(-1)}>+</button> */}
           <button onClick={this.props.onSub}>-</button>
 
-          <button onClick={() => this.props.onAddNumber(1)}>1</button>
-          <button onClick={() => this.props.onAddNumber(2)}>2</button>
-          <button onClick={() => this.props.onAddNumber(3)}>3</button>
           <button onClick={() => this.props.onAddNumber(4)}>4</button>
         </div>
         <hr/>
